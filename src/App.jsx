@@ -57,7 +57,10 @@ function App() {
       </div>
       <div className='col-span-2'>
         {newProject ? (
-          <FormProject onSavingProject={handleSavingProject} />
+          <FormProject 
+            onSavingProject={handleSavingProject} 
+            setNewProject = {setNewProject}
+          />
         ) : isActive !== null ? (
           <Project 
             project={projects[isActive]} 

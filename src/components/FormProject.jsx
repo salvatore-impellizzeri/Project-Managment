@@ -1,10 +1,13 @@
 import { useRef } from "react";
 
-export default function FormProject({onSavingProject}) {
+export default function FormProject({onSavingProject, setNewProject}) {
     const titleRef = useRef(null);
     const descriptionRef = useRef(null);
     const dateRef = useRef(null);
 
+    function handleCancel(){
+        setNewProject(false);
+    }
 
     function handleSubmit(e){
         e.preventDefault();
@@ -16,12 +19,15 @@ export default function FormProject({onSavingProject}) {
 
     return (
         <form 
-            action="" 
             onSubmit={handleSubmit}
             className="h-full w-full flex flex-col justify-center items-center pr-48"
         >
             <div className="flex justify-end w-full">
-                <button type="button" className="py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816]">
+                <button 
+                    onClick={handleCancel}
+                    type="button" 
+                    className="py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816]"
+                >
                     Cancel
                 </button>
                 <button type="submit" className="py-2 px-7 text-xl font-normal rounded-lg bg-[#1c1816] text-white">
