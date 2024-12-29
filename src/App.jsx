@@ -11,6 +11,8 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [isActive, setIsActive] = useState(null);
 
+  const buttonTransparentClasses = "py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816]"
+
   function handleCreation(){
     setNewProject(true);
     setIsActive(null);
@@ -63,6 +65,7 @@ function App() {
       <div className='col-span-2'>
         {newProject ? (
           <FormProject 
+            buttonTransparentClasses={buttonTransparentClasses}
             onSavingProject={handleSavingProject} 
             setNewProject = {setNewProject}
           />
@@ -70,6 +73,7 @@ function App() {
           <Project 
             project={projects[isActive]} 
             deleteProject={handleDelete}
+            buttonTransparentClasses={buttonTransparentClasses}
           /> 
         ) : (
           <EmptyProject onNewProject={handleCreation} />

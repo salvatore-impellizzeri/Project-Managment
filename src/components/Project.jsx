@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-export default function Project({ project, deleteProject }) {
+export default function Project({ project, deleteProject, buttonTransparentClasses }) {
 
     const taskRef = useRef();
     const [tasks, setTasks] = useState([]);
@@ -30,7 +30,7 @@ export default function Project({ project, deleteProject }) {
             <button 
                 onClick={deleteProject} 
                 type="button" 
-                className="absolute top-0 right-0 py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816] hover:text-red-600"
+                className={`${buttonTransparentClasses} absolute top-0 right-0 hover:text-red-600`}
             >
                 Delete
             </button>
@@ -47,7 +47,7 @@ export default function Project({ project, deleteProject }) {
             />
             <button
                 onClick={handleTask}
-                className="py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816]"
+                className={buttonTransparentClasses}
             >
                 Add Task
             </button>
@@ -69,7 +69,7 @@ export default function Project({ project, deleteProject }) {
                                 <button 
                                     onClick={() => handleClear(index)}
                                     type="button" 
-                                    className="py-2 px-7 font-medium rounded-lg text-[#1c1816] hover:text-red-600"
+                                    className={`${buttonTransparentClasses} hover:text-red-600`} 
                                 >
                                     Clear
                                 </button>
