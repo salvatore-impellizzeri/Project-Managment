@@ -30,7 +30,7 @@ export default function Project({ project, deleteProject }) {
             <button 
                 onClick={deleteProject} 
                 type="button" 
-                className="absolute top-0 right-0 py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816]"
+                className="absolute top-0 right-0 py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816] hover:text-red-600"
             >
                 Delete
             </button>
@@ -69,7 +69,7 @@ export default function Project({ project, deleteProject }) {
                                 <button 
                                     onClick={() => handleClear(index)}
                                     type="button" 
-                                    className="py-2 px-7 font-medium rounded-lg text-[#1c1816]"
+                                    className="py-2 px-7 font-medium rounded-lg text-[#1c1816] hover:text-red-600"
                                 >
                                     Clear
                                 </button>
