@@ -24,9 +24,9 @@ export default function Project({ project, deleteProject }) {
             <p className="mt-2 text-xl text-black/40 font-medium">
                 {project.date}
             </p>
-            <p className="text-lg text-black font-medium mt-4">
+            <pre className="text-lg text-black font-medium mt-4">
                 {project.description}
-            </p>
+            </pre>
             <button 
                 onClick={deleteProject} 
                 type="button" 
