@@ -1,5 +1,5 @@
 
-export default function SideBar({onNewProject, projects, onHandleActive}) {
+export default function SideBar({onNewProject, projects, onHandleActive, activeProject}) {
 
     return (
         <aside className="bg-[#100E0C] rounded-tr-2xl h-full py-16 px-8">
@@ -19,7 +19,7 @@ export default function SideBar({onNewProject, projects, onHandleActive}) {
                         className="mb-2"
                         onClick={() => onHandleActive(index)}
                     >
-                        <button className="text-white/60 text-xl px-2 py-2 bg-[#1C1816] w-full text-left rounded-md">
+                        <button className={`text-white/60 text-xl px-2 py-2 ${ activeProject === index ? 'bg-[#1C1816]' : '' } w-full text-left rounded-md`}>
                             {project.title}
                         </button>
                     </li>

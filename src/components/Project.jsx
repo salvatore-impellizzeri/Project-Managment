@@ -1,4 +1,4 @@
-export default function Project({ project }) {
+export default function Project({ project, deleteProject }) {
     return (
       <div className="pt-20 pr-48">
         <div className="relative">
@@ -11,7 +11,11 @@ export default function Project({ project }) {
             <p className="text-lg text-black font-medium mt-4">
                 {project.description}
             </p>
-            <button type="button" className="absolute top-0 right-0 py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816]">
+            <button 
+                onClick={deleteProject} 
+                type="button" 
+                className="absolute top-0 right-0 py-2 px-7 text-xl font-medium rounded-lg text-[#1c1816]"
+            >
                 Delete
             </button>
         </div>

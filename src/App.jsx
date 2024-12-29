@@ -8,7 +8,7 @@ import { useState } from "react";
 function App() {
   
   const [newProject, setNewProject] = useState(false);
-  const [projects, setProject] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [isActive, setIsActive] = useState(null);
 
   function handleCreation(){
@@ -17,7 +17,7 @@ function App() {
   }
 
   function handleSavingProject(titleValue, descriptionValue, dateValue){
-    setProject((prevProject) => [...prevProject, 
+    setProjects((prevProject) => [...prevProject, 
       {
         title: titleValue, 
         description: descriptionValue, 
@@ -31,6 +31,12 @@ function App() {
     setNewProject(false);
   }
 
+  function handleDelete(){
+    setProjects((prevProjects) => prevProjects.filter((_, index) => index !== isActive));
+    setIsActive(null);
+    setNewProject(false);
+  }
+
   return (
     <div className='pt-10 h-screen grid grid-cols-3 grid-rows-1 gap-x-12'>
       <div>
@@ -38,13 +44,17 @@ function App() {
           onNewProject={handleCreation}
           projects={projects}
           onHandleActive={handleActive}
+          activeProject={isActive}
         />
       </div>
       <div className='col-span-2'>
         {newProject ? (
           <FormProject onSavingProject={handleSavingProject} />
         ) : isActive !== null ? (
-          <Project project={projects[isActive]} /> 
+          <Project 
+            project={projects[isActive]} 
+            deleteProject={handleDelete}
+          /> 
         ) : (
           <EmptyProject onNewProject={handleCreation} />
         )}
