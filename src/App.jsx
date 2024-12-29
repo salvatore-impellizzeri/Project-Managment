@@ -17,11 +17,19 @@ function App() {
   }
 
   function handleSavingProject(titleValue, descriptionValue, dateValue){
+    
+    const date = new Date(dateValue);
+    const formattedDate = date.toLocaleDateString("en-ENG", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+
     setProjects((prevProject) => [...prevProject, 
       {
         title: titleValue, 
         description: descriptionValue, 
-        date: dateValue
+        date: formattedDate
       }]);
     setNewProject(false);
   }
