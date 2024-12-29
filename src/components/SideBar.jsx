@@ -1,5 +1,5 @@
 
-export default function SideBar({onNewProject, projects}) {
+export default function SideBar({onNewProject, projects, onHandleActive}) {
 
     return (
         <aside className="bg-[#100E0C] rounded-tr-2xl h-full py-16 px-8">
@@ -13,10 +13,14 @@ export default function SideBar({onNewProject, projects}) {
                 + Add Project
             </button>
             <ul className="mt-14">
-                {projects.map((title, index) => (
-                    <li className="mb-2">
-                        <button key={index} className="text-white/60 text-xl px-2 py-2 bg-[#1C1816] w-full text-left rounded-md">
-                            {title}
+                {projects.map((project, index) => (
+                    <li 
+                        key={index}
+                        className="mb-2"
+                        onClick={() => onHandleActive(index)}
+                    >
+                        <button className="text-white/60 text-xl px-2 py-2 bg-[#1C1816] w-full text-left rounded-md">
+                            {project.title}
                         </button>
                     </li>
                 ))}
